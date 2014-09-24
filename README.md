@@ -1,14 +1,15 @@
-tinyspring
+tinyutils is a set of utitilies built on top of some famous utils libraries like Apache commons, google Guava, joda time to 
+provide either something missing from these libraries or more sophiscated but easier to use functions.
 ==========
 
-## Utilities
 
 ### StopWatch
 
-I know Commons and Guava and Spring they all have StopWatch. I just tried to make this one writing less code to use and be able to mark multiple time in one instance.
+A stop watch able to mark multiple time in one instance with minimum code.
 
     private void yourMethod() {
         StopWatch stopWatch = new StopWatch("a stop watch").start();
+        
         //do something
         
         stopWatch.mark("phase 1");

@@ -1,6 +1,4 @@
-tinyutils is a set of utitilies built on top of some famous utils libraries like Apache commons, google Guava, joda time to 
-provide either something missing from these libraries or more sophiscated but easier to use functions.
-==========
+tinyutils is a set of utitilies built on top of some famous utils libraries like Apache commons, google Guava, joda time to provide either something missing from these libraries or more sophiscated but easier to use functions.
 
 
 ### StopWatch

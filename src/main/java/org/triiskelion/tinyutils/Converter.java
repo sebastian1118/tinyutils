@@ -3,18 +3,39 @@ package org.triiskelion.tinyutils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Sebastian MA
- * Date: July 04, 2014
- * Time: 9:17
+ * Conversion between some common forms
  */
 public class Converter {
 
+	/**
+	 * Convert the string representation of an integer list into an int array
+	 *
+	 * @param string
+	 * 		string of integers
+	 * @param separatorChars
+	 * 		the characters used as the delimiters, null splits on whitespace
+	 *
+	 * @return converted int array
+	 *
+	 * @throws java.lang.NumberFormatException
+	 * 		if the string does not contain a parsable integer.
+	 */
 	public static int[] toIntArray(String string, String separatorChars) {
 
 		return toIntArray(StringUtils.split(string, separatorChars));
 	}
 
+	/**
+	 * Convert the string array representation of an integer list into an int array
+	 *
+	 * @param array
+	 * 		the string array representation of an integer list
+	 *
+	 * @return converted int array
+	 *
+	 * @throws java.lang.NumberFormatException
+	 * 		if the string does not contain a parsable integer.
+	 */
 	public static int[] toIntArray(String[] array) {
 
 		int[] result = new int[array.length];
@@ -24,11 +45,36 @@ public class Converter {
 		return result;
 	}
 
+	/**
+	 * Convert the string representation of an integer list into an Integer array
+	 *
+	 * @param string
+	 * 		string of integers
+	 * @param separatorChars
+	 * 		the characters used as the delimiters, null splits on whitespace
+	 *
+	 * @return converted Integer array
+	 *
+	 * @throws java.lang.NumberFormatException
+	 * 		if the string does not contain a parsable integer.
+	 */
 	public static Integer[] toIntegerArray(String string, String separatorChars) {
 
 		return toIntegerArray(StringUtils.split(string, separatorChars));
 	}
 
+
+	/**
+	 * Convert the string array representation of an integer list into an Integer array
+	 *
+	 * @param array
+	 * 		the string array representation of an integer list
+	 *
+	 * @return converted Integer array
+	 *
+	 * @throws java.lang.NumberFormatException
+	 * 		if the string does not contain a parsable integer.
+	 */
 	public static Integer[] toIntegerArray(String[] array) {
 
 		Integer[] result = new Integer[array.length];

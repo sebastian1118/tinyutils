@@ -1,6 +1,9 @@
 package org.triiskelion.tinyutils;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Locale;
 
 /**
  * User: tian
@@ -59,15 +62,26 @@ public class Validator {
 	}
 
 	/**
-	 * valid chinese mobile number an optional country code of 0086 or +86 followed by an 11-digit
+	 * valid mobile number an optional country code of 0086 or +86 followed by an 11-digit
 	 * number. Null pointer safe.
 	 *
 	 * @param number
 	 * 		may be null
+	 * @param locale
+	 * 		the locale
 	 */
-	public static boolean isMobileNumber(String number) {
+	public static boolean isMobileNumber(String number, Locale locale, boolean allowNationalCode) {
 
-		return StringUtils.isNotBlank(number) && number.matches("(((00)|\\+)86)?[0-9]{11}");
+		if(locale.equals(Locale.CHINA)) {
+			if(allowNationalCode) {
+				return StringUtils.isNotBlank(number) && number.matches("(((00)|\\+)86)" +
+						"?[0-9]{11}");
+			} else {
+				return StringUtils.isNotBlank(number) && number.matches("1[0-9]{10}");
+			}
+		} else {
+			throw new NotImplementedException(locale.toString());
+		}
 	}
 
 	/**
@@ -78,39 +92,5 @@ public class Validator {
 		return StringUtils.isNotBlank(number) && number.matches("1[0-9]{10}");
 	}
 
-	public static String getEncoding(String str) {
-
-		String encode;
-		encode = "UTF-8";
-		try {
-			if(str.equals(new String(str.getBytes(encode), encode))) {
-				return encode;
-			}
-		} catch(Exception exception2) {
-		}
-		encode = "GB2312";
-		try {
-			if(str.equals(new String(str.getBytes(encode), encode))) {
-				return encode;
-			}
-		} catch(Exception exception) {
-		}
-		encode = "ISO-8859-1";
-		try {
-			if(str.equals(new String(str.getBytes(encode), encode))) {
-				return encode;
-			}
-		} catch(Exception exception1) {
-		}
-
-		encode = "GBK";
-		try {
-			if(str.equals(new String(str.getBytes(encode), encode))) {
-				return encode;
-			}
-		} catch(Exception exception3) {
-		}
-		return "";
-	}
 
 }

@@ -252,6 +252,10 @@ public class DateTimeUtils {
 
 	public static Timestamp parse(String time) {
 
+		if(time == null || time.isEmpty()) {
+			return null;
+		}
 		return new Timestamp(DateTime.parse(time).getMillis());
 	}
+
 }

@@ -44,7 +44,7 @@ public class BeanUtils {
 		return null;
 	}
 
-	public static String firstAvailable(String... objects) {
+	public static String firstAvailable(String... objects ) {
 
 		if(objects == null || objects.length == 0) {
 			return null;
@@ -72,17 +72,17 @@ public class BeanUtils {
 		return ac.getDefault();
 	}
 
-	public static <T> T cherryPick(CherryPicker picker, T... objects) {
-
-		if(objects == null || objects.length == 0) {
-			return null;
-		}
-
-		for(T obj : objects) {
-
-		}
-		return null;
-	}
+//	public static <T> T cherryPick(CherryPicker picker, T... objects) {
+//
+//		if(objects == null || objects.length == 0) {
+//			return null;
+//		}
+//
+//		for(T obj : objects) {
+//
+//		}
+//		return null;
+//	}
 
 	public static String cherryPick(String... objects) {
 

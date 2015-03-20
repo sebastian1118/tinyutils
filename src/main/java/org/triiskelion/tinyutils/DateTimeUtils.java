@@ -10,13 +10,11 @@ import java.util.Date;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: Sebastian MA
- * Date: June 22, 2014
- * Time: 23:17
- * <p/>
  * DateTimeUtils using JodaTime library
+ *
+ * @author Sebastian MA
  */
+@Deprecated
 public class DateTimeUtils {
 
 	private static DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yyyy-MM-dd");
@@ -27,6 +25,11 @@ public class DateTimeUtils {
 	public static String format(DateTime time, String pattern) {
 
 		return DateTimeFormat.forPattern(pattern).print(time);
+	}
+
+	public static String format(Timestamp time, String pattern) {
+
+		return DateTimeFormat.forPattern(pattern).print(new DateTime(time.getTime()));
 	}
 
 	public static Timestamp timestamp(DateTime time) {
@@ -257,5 +260,6 @@ public class DateTimeUtils {
 		}
 		return new Timestamp(DateTime.parse(time).getMillis());
 	}
+
 
 }

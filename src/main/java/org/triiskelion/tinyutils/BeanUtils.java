@@ -1,35 +1,12 @@
 package org.triiskelion.tinyutils;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-
 /**
- * Created with IntelliJ IDEA.
- * User: Sebastian MA
- * Date: August 23, 2014
- * Time: 21:00
+ * @author Sebastian MA
  */
 public class BeanUtils {
 
-	public static <T> Map<String, Set<Object>> distinctPropertyValues(List<T> list,
-	                                                                  String... names) throws
-			NoSuchFieldException, IllegalAccessException, NoSuchMethodException,
-			InvocationTargetException {
 
-		Map<String, Set<Object>> map = new HashMap<>();
-		for(T t : list) {
-			for(String name : names) {
-				if(map.get(name) == null) {
-					map.put(name, new HashSet<>());
-				}
-				map.get(name).add(
-						t.getClass().getDeclaredMethod("get" + name.substring(0,
-								1).toUpperCase() + name.substring(1)).invoke(t));
-			}
-		}
-		return map;
-	}
-
+	@SafeVarargs
 	public static <T> T firstAvailable(AvailableCondition<T> ac, T... objects) {
 
 		if(objects == null || objects.length == 0) {
@@ -44,7 +21,7 @@ public class BeanUtils {
 		return null;
 	}
 
-	public static String firstAvailable(String... objects ) {
+	public static String firstAvailable(String... objects) {
 
 		if(objects == null || objects.length == 0) {
 			return null;
@@ -72,17 +49,17 @@ public class BeanUtils {
 		return ac.getDefault();
 	}
 
-//	public static <T> T cherryPick(CherryPicker picker, T... objects) {
-//
-//		if(objects == null || objects.length == 0) {
-//			return null;
-//		}
-//
-//		for(T obj : objects) {
-//
-//		}
-//		return null;
-//	}
+	//	public static <T> T cherryPick(CherryPicker picker, T... objects) {
+	//
+	//		if(objects == null || objects.length == 0) {
+	//			return null;
+	//		}
+	//
+	//		for(T obj : objects) {
+	//
+	//		}
+	//		return null;
+	//	}
 
 	public static String cherryPick(String... objects) {
 

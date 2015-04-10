@@ -22,7 +22,7 @@ public class JodaDateTimeFactory extends DateTimeFactory<DateTime> {
 	@Override
 	public DateTime now() {
 
-		return DateTime.now();
+		return org.joda.time.DateTime.now();
 	}
 
 	@Override
